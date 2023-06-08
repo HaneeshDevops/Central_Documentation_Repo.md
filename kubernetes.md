@@ -54,7 +54,7 @@ metadata:
 
 managedNodeGroups:
 
-# `instanceTypes` defaults to [`m5.large`]
+instanceTypes` defaults to [`m5.large`]
 - name: spot-1
   spot: true
   instanceTypes:
