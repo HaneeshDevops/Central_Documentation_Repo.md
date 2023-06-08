@@ -8,7 +8,7 @@ Installed Kubectl --> 1.24
 aws configure
 access key & secret Key
 [ap-south-1]
-====================================KUBERNETEES:
+
 
 Created IAM user with admin access, created access key & Secret Key
 Craeted EC2
@@ -18,7 +18,7 @@ Installed Kubectl --> 1.24
 aws configure
 access key & secret Key
 [ap-south-1]
-====================================
+
 Install AWS CLI, by default AWS instance gets V1, We need to upgrade to V2: 
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
@@ -26,14 +26,13 @@ unzip awscliv2.zip
 sudo ./aws/install --bin-dir /usr/local/bin --install-dir /usr/local/aws-cli --update
 *Logout and Login again.
 
-===================================
 Install latest eksctl command:
 
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 
-==================================
+
 Install kubectl command maxium one version less than EKS version:
 
 curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.10/2023-01-30/bin/linux/amd64/kubectl
@@ -43,7 +42,7 @@ sudo mv kubectl /usr/local/bin/kubectl
 aws configure
 [ap-south-1]
 
-================================================
+
 vim eks-config.yaml
 
 apiVersion: eksctl.io/v1alpha5
