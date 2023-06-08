@@ -62,7 +62,6 @@ managedNodeGroups:
   ssh:
     publicKeyName: k8s
 
-===================================
 aws ec2 create-key-pair --key-name k8s --query 'KeyMaterial' --output text > k8s.pem 
 [OR]
 aws ec2 create-key-pair --key-name k8s --query 'KeyMaterial' --output text > k8s.pem --region ap-south-1
