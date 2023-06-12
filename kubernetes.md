@@ -73,3 +73,25 @@ eksctl get clusters
 //Check region
 kubectl get nodes
 kubectl get namespaces
+
+# =================================================================
+When Jenkins builds and deploys a new version of your application in a Kubernetes cluster, it typically follows a rolling update strategy. This means that the new version is gradually rolled out while ensuring that the existing containers and services remain available.
+
+Here's how it typically works:
+
+Jenkins starts building the new application based on the code changes pushed to GitHub. It may run tests and perform other necessary tasks as defined in the Jenkins pipeline.
+
+Once the new build is successful, Jenkins creates a new Docker image for the updated version and pushes it to a container registry.
+
+Jenkins interacts with Kubernetes to initiate the deployment process. It typically uses Kubernetes configuration files (such as deployment manifests) that define how the application should be deployed and updated.
+
+Kubernetes follows a rolling update strategy by default. This means that it will gradually update the existing pods with the new version while maintaining the availability of the application.
+
+Kubernetes creates new pods with the new image and gradually replaces the existing pods.
+During the rolling update, Kubernetes ensures that a certain number of old pods are running alongside the new ones, avoiding downtime.
+The number of pods running the old version and the new version can be controlled using the deployment's replica configuration.
+Once the new pods are up and running, Kubernetes starts redirecting traffic to the new pods and gradually scales down the old pods.
+
+By using a rolling update strategy, Kubernetes ensures that there is no disruption in service during the deployment process. It allows for seamless transitioning between different versions of the application. The old containers and images are gradually replaced by the new ones as part of the rolling update process, ensuring a smooth transition and maintaining the availability of the application.
+
+It's worth noting that the exact behavior and update strategy can be customized through Kubernetes deployment configurations. You can specify different update strategies, scaling behaviors, and other parameters to suit your specific requirements.
