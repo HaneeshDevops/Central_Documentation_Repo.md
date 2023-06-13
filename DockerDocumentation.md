@@ -157,8 +157,8 @@ export PATH=/opt/apache-maven-3.2.5/bin:$PATH
 source ~/.bashrc
 mvn -version
 sudo yum install -y git
-git clone -b branch https://github.com/Haneesh55/CAPEcommerceApplication.git
-cd CAPEcommerceApplication
+git clone https://github.com/HaneeshDevops/SpringBootEcommerceApplication.git
+cd SpringBootEcommerceApplication
 mvn clean
 mvn install -DskipTests
 ```
