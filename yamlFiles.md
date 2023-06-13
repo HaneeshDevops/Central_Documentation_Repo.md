@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: postgresql
-          image: YourdockerHub_ID/postgres:latest
+          image: haneeshdevops/posgres:latest
           env:
             - name: POSTGRES_USER
               value: postgres
@@ -71,7 +71,7 @@ spec:
     spec:
       containers:
         - name: javapp
-          image: likhi1/restaurantproject_app:latest
+          image: haneeshdevops/springbootecommerceapplication_app:latest
           env:
             - name: DB_HOST
               value: postgresql
