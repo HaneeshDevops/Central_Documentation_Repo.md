@@ -83,6 +83,8 @@ vi Dockerfile
 ## Paste the following in Dockerfile
 ```sh
 FROM openjdk:17
+ARG CONTAINER_NAME=ecomapp
+ARG IMAGE_NAME=ecomapp
 EXPOSE 9090
 ADD target/EcommereceApp-rest-0.0.1-SNAPSHOT.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
@@ -95,29 +97,29 @@ vi docker-compose.yml
  ```sh
  version: "3.8"
 services:
-  postgres:
-    image: postgres:latest
-    container_name: postgres_db
-    restart: always
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: TEST2
-    volumes:
-      - postgres-data:/var/lib/postgresql/data
-  app:
-    build: .
-    container_name: myapplication
-    depends_on:
-      - postgres
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/TEST2
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: root
-    ports:
-      - "9090:9090"
+ postgres:
+   image: postgres:latest
+   container_name: postgres_db
+   restart: always
+   environment:
+     POSTGRES_USER: postgres
+     POSTGRES_PASSWORD: root
+     POSTGRES_DB: TEST2
+   volumes:
+     - postgres-data:/var/lib/postgresql/data
+ app:
+   build: .
+   container_name: myapplication
+   depends_on:
+     - postgres
+   environment:
+     SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/TEST2
+     SPRING_DATASOURCE_USERNAME: postgres
+     SPRING_DATASOURCE_PASSWORD: root
+   ports:
+     - "9090:9090"
 volumes:
-  postgres-data:
+ postgres-data:
  ```
 ## Build image and start Docker containers::
 ```sh
