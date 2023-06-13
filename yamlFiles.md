@@ -1,5 +1,8 @@
 ## DEPLOYMENT: PostgreSQL
 ```
+vi postgresql-deployment
+```
+```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -30,6 +33,9 @@ spec:
 ```
 ## SERVICE: PostgreSQL
 ```
+vi postgresql-service.yaml
+```
+```
 apiVersion: v1
 kind: Service
 metadata:
@@ -45,6 +51,9 @@ spec:
 ```
 
 ## DEPLOYMENT: Application
+```
+vi application-deployment
+```
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -74,6 +83,9 @@ spec:
 ```
 
 ## application service
+```
+vi application-service.yaml
+```
 ```
 apiVersion: v1
 kind: Service
