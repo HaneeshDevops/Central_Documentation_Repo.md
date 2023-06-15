@@ -52,7 +52,7 @@ spec:
 
 ## DEPLOYMENT: Application
 ```
-vi application-deployment
+vi application-deployment.yaml
 ```
 ```
 apiVersion: apps/v1
