@@ -103,8 +103,8 @@ spec:
 
 ## Create the PostgreSQL deployment and service by applying the following YAML files:
 ```
-kubectl apply -f postgresql-deployment.yaml
-kubectl apply -f postgresql-service.yaml
+kubectl apply -f postgresql-deployment.yml
+kubectl apply -f postgresql-service.yml
 ```
 
 ## Verify that the PostgreSQL deployment and service are running:
@@ -115,7 +115,7 @@ kubectl get services
 
 ## Update the application deployment with the modified YAML file:
 ```
-kubectl apply -f application-deployment.yaml
+kubectl apply -f application-deployment.yml
 ```
 
 ## Verify that the application deployment is running:
