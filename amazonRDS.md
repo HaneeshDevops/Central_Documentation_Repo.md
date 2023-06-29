@@ -21,3 +21,4 @@ spring.jpa.show-sql=true
  ### mention the unique name of RDS database
  ### paste the end-point provided by RDS
  ### provide the user name & password that you have given while creating RDS databse in aws.(password must be 8 characters)
+### similarly we can connect to RDS database through eclipse. In this can we can dircetly use localhost url while passing inputs to swagger. these here our springboot application is hosted in local machine. But the data is stored in aws RDS database.
