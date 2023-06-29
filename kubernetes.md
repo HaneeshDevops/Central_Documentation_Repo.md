@@ -10,15 +10,6 @@ access key & secret Key
 [ap-south-1]
 
 
-Created IAM user with admin access, created access key & Secret Key
-Craeted EC2
-Upgraded AWS CLI to version2
-Installed eksctl
-Installed Kubectl --> 1.24
-aws configure
-access key & secret Key
-[ap-south-1]
-
 Install AWS CLI, by default AWS instance gets V1, We need to upgrade to V2: 
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o "awscliv2.zip"
