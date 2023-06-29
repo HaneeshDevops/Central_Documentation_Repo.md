@@ -17,7 +17,7 @@ spring.jpa.show-sql=true
 ```
 
 ## Later connect to RDS with Pgadmin (in local system)
->> select new server
->> mention the unique name of RDS database
->> paste the end-point provided by RDS
->> provide the user name & password that you have given while creating RDS databse in aws.(password must be 8 characters)
+ select new server
+ mention the unique name of RDS database
+ paste the end-point provided by RDS
+ provide the user name & password that you have given while creating RDS databse in aws.(password must be 8 characters)
