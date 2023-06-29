@@ -62,11 +62,11 @@ yum install -y git
  ```
 ## Clone a Git repository:
 ```sh
-git clone -b branch https://github.com/Haneesh55/CAPEcommerceApplication.git
+git clone https://github.com/HaneeshDevops/SpringBootEcommerceApplication.git
  ```
 ## Navigate to the project directory:
 ```sh
-cd CAPEcommerceApplication
+cd SpringBootEcommerceApplication
  ```
 ## Clean Maven project:
 ```sh
@@ -163,6 +163,11 @@ git clone https://github.com/HaneeshDevops/SpringBootEcommerceApplication.git
 cd SpringBootEcommerceApplication
 mvn clean
 mvn install -DskipTests
+docker-compose up -d
+docker images
+docker ps
+docker logs myapplication
+docker ps
 ```
 
 ## Swagger UI Link
