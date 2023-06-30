@@ -166,7 +166,7 @@ kubectl get deployments
 
 ## Create the application service:
 ```
-kubectl apply -f application-service.yaml
+kubectl apply -f application-service.yml
 ```
 
 ## Verify that the application service is created:
