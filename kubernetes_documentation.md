@@ -29,7 +29,12 @@ sudo chmod +x /usr/local/bin/kubectl
 sudo curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
 ```
+## Deployment commands:
+```
+docker tag ecomapp:latest haneeshdevops/ecomapp:latest
+docker push haneeshdevops/ecomapp:latest
 
+```
 ## other commands:
 ```
 eksctl create cluster --name admin --region us-west-2
