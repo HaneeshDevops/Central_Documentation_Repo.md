@@ -1,9 +1,14 @@
 ```
 sudo su -
+yum update –y
+
 # upgrade AWS cli to v2
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 unzip awscliv2.zip
 sudo ./aws/install
+
+# install git
+yum install -y git
 
 # install docker
 yum install -y docker
@@ -27,6 +32,10 @@ export PATH=/opt/apache-maven-3.2.5/bin:$PATH
 source ~/.bashrc
 
 # install jenkins:
+wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+yum upgrade -y
 yum install jenkins -y
 systemctl enable jenkins
 sudo usermod -aG docker jenkins
