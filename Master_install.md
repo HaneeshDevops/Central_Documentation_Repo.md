@@ -47,16 +47,21 @@ sudo mv /tmp/eksctl /usr/local/bin
 cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ```
-# upgrade maven
+
+# Optional:
+## upgrade maven
 ```
 wget https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
 tar -xf apache-maven-3.2.5-bin.tar.gz
 sudo mv apache-maven-3.2.5 /opt/
 vi ~/.bashrc
 ```
-## Add the following lines at the end of the file:
+### Add the following lines at the end of the file:
 ```
 export MAVEN_HOME=/opt/apache-maven-3.2.5
 export PATH=$MAVEN_HOME/bin:$PATH
+```
+### execute this command
+```
 source ~/.bashrc
 ```
