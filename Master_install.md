@@ -24,13 +24,6 @@ sudo yum update -y
 # install maven
 sudo yum install -y maven
 
-# upgrade maven
-wget http://mirror.olnevhost.net/pub/apache/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
-tar xzf apache-maven-3.2.5-bin.tar.gz
-sudo mv apache-maven-3.2.5 /opt/
-export PATH=/opt/apache-maven-3.2.5/bin:$PATH
-source ~/.bashrc
-
 # install jenkins:
 wget -O /etc/yum.repos.d/jenkins.repo \
     https://pkg.jenkins.io/redhat-stable/jenkins.repo
@@ -53,4 +46,17 @@ sudo mv /tmp/eksctl /usr/local/bin
 
 cat /var/lib/jenkins/secrets/initialAdminPassword
 
+```
+# upgrade maven
+```
+wget https://archive.apache.org/dist/maven/maven-3/3.2.5/binaries/apache-maven-3.2.5-bin.tar.gz
+tar -xf apache-maven-3.2.5-bin.tar.gz
+sudo mv apache-maven-3.2.5 /opt/
+vi ~/.bashrc
+```
+## Add the following lines at the end of the file:
+```
+export MAVEN_HOME=/opt/apache-maven-3.2.5
+export PATH=$MAVEN_HOME/bin:$PATH
+source ~/.bashrc
 ```
