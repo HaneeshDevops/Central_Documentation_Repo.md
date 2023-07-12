@@ -27,6 +27,6 @@ Description : Docker Hub
 ### Also add the credentials of Kubeconfig: Select secret file format
 ```
 ID : k8sgroup
-Description : Kube-config.txt file uplload
+Description : Kube-config.txt file upload
 ```
 ## Step4 : Now build a pipeline & add the target repo to start CI-CD process
