@@ -38,6 +38,9 @@ docker push haneeshdevops/ecomapp:latest
 ## other commands:
 ```
 eksctl create cluster --name admin --region us-west-2
+or
+eksctl create cluster --name k8s --region us-west-2 --node-type t2.small --zones us-west-2a,us-west-2b,us-west-2c
+
 aws eks --region us-west-2 update-kubeconfig --name admin
 kubectl apply -f deployment.yaml
 kubectl apply -f service.yaml
