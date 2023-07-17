@@ -32,7 +32,7 @@ sudo chmod +x /usr/local/bin/kubectl
 cat /var/lib/jenkins/secrets/initialAdminPassword
 
 ```
-
+## SonarQube : [Link](https://github.com/HaneeshDevops/Central_Documentation_Repo.md/blob/main/SonarQube.md)
 # Optional:
 
 ## Add jenkins to docker group:
