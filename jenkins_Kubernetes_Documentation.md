@@ -29,4 +29,10 @@ Description : Docker Hub
 ID : k8sgroup
 Description : Kube-config.txt file upload
 ```
+
+## SonarQube Credentials in jenkins :
+```
+sonarurl : http://3.80.229.101:9000
+SonarQube : sqp_4aade36d795a91ac38aac1c6eba9a92ceaa182a2 (token)
+```
 ## Step4 : Now build a pipeline & add the target repo to start CI-CD process
