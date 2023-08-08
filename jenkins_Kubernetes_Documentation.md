@@ -16,6 +16,7 @@ Kubectl is already pre installed
 Docker
 Docker pipeline
 Kubernetes CLI
+SonarQube Scanner for Jenkins
 ```
 ### Go to configuration location in jenkins & add the following configuration (global config)
 ### Add the credentials of Docker: Select username & password format
