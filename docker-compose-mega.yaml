@@ -1,0 +1,132 @@
+version: "3.8" # Specifies the Compose file format version
+
+# Declare volumes, networks, configs, and secrets
+volumes:
+  app-data:
+    driver: local
+    driver_opts:
+      type: tmpfs
+      device: tmpfs
+    labels:
+      purpose: "app-data-storage"
+
+networks:
+  app-network:
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: custom_bridge
+    labels:
+      environment: "development"
+    external: false
+
+configs:
+  app-config:
+    file: ./config/app-config.yaml
+    name: custom-config
+    labels:
+      managed_by: "devops"
+
+secrets:
+  db-password:
+    file: ./secrets/db-password.txt
+    name: db-password-secret
+    external: false
+
+services:
+  app:
+    image: my-app:latest
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      args:
+        - BUILD_ENV=production
+    container_name: my_app_container
+    ports:
+      - "8080:80"
+    volumes:
+      - app-data:/data
+      - ./app:/usr/src/app
+    environment:
+      - DATABASE_URL=postgres://user:password@db:5432/mydb
+      - API_KEY=${API_KEY}
+    env_file:
+      - .env
+    networks:
+      - app-network
+    depends_on:
+      - db
+    restart: always
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:80 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    secrets:
+      - source: db-password
+        target: /run/secrets/db-password
+    configs:
+      - source: app-config
+        target: /usr/src/app/config.yaml
+    extra_hosts:
+      - "custom-host:127.0.0.1"
+    dns:
+      - 8.8.8.8
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+    cap_drop:
+      - MKNOD
+    hostname: my-app-host
+    tty: true
+
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-defaultpassword}
+      POSTGRES_DB: mydb
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+    secrets:
+      - db-password
+
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+  worker:
+    image: my-worker:latest
+    build:
+      context: ./worker
+    environment:
+      WORKER_ENV: production
+    networks:
+      - app-network
+    depends_on:
+      - app
+    restart: on-failure
+    healthcheck:
+      test: ["CMD-SHELL", "exit 0"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  db-data:
+    driver: local
+    external: false
